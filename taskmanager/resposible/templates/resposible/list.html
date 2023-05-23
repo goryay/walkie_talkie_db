@@ -1,0 +1,26 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Список арендодателей</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">ФИО арендодателя</th>
+                <th scope="col">Департамент</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for resposible in resposibles %}
+            <tr>
+                <td>{{ resposible.resposible_fio }}</td>
+                <td>{{ resposible.id_department }}</td>
+                <td><a type="button" class="btn btn-warning" href="update/{{ resposible.id }}">Обновить</a>
+                    <a type="button" class="btn btn-danger" href="delete/{{ resposible.id }}">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="create">Добавить</a>
+</div>
+{% endblock %}

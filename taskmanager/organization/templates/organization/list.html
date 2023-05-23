@@ -1,0 +1,24 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Список организаций</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Название организации</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for organization in organizations %}
+            <tr>
+                <td>{{ organization.name }}</td>
+                <td><a type="button" class="btn btn-warning" href="update/{{ organization.id }}">Обновить</a>
+                    <a type="button" class="btn btn-danger" href="delete/{{ organization.id }}">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="create">Добавить</a>
+</div>
+{% endblock %}

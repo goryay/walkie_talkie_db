@@ -1,0 +1,14 @@
+{% extends "main/base.html" %}
+{% block content %}
+    <div class="card-body">
+        <h5>Добавить новый учёт</h5>
+        <form method="post">
+            <p class="center">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <a type="button" class="btn btn-danger" href="/accounting">Отмена</a>
+            <button type="submit" class="btn btn-success">Сохранить</button>
+            </p>
+        </form>
+    </div>
+{% endblock %}

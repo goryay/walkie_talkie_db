@@ -1,0 +1,12 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div class="card-body">
+    <h5>Добавить ответственного</h5>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <a type="button" class="btn btn-danger" href="/resposible">Отмена</a>
+        <button type="submit" class="btn btn-success">Сохранить</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "main/base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Список отделов</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Название отдела</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for department in departments %}
+            <tr>
+                <td>{{ department.name }}</td>
+                <td>{{ department.address }}</td>
+                <td><a type="button" class="btn btn-warning" href="update/{{ department.id }}">Обновить</a>
+                    <a type="button" class="btn btn-danger" href="delete/{{ department.id }}">Удалить</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="create">Добавить</a>
+</div>
+{% endblock %}
