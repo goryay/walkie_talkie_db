@@ -13,10 +13,10 @@ class Accounting(models.Model):
     id_resposible = models.ForeignKey(Resposible, on_delete=models.CASCADE)
     id_post = models.ForeignKey(Post, on_delete=models.CASCADE)
     id_state = models.ForeignKey(State, on_delete=models.CASCADE)
-    relevance = models.BooleanField('Актуальность', default=False)
-    document = models.CharField('Документ подтверждающий приём на себя рацию', max_length=380)
-    date = models.DateTimeField('Дата')
-    comments = models.TextField('Комментарий')
+    relevance = models.BooleanField('Состоит на учёте', default=False)
+    document = models.CharField('Акт приема-передачи', max_length=380)
+    date = models.DateTimeField('Дата ввода в эксплуатацию')
+    comments = models.TextField('Примечание')
 
     def __str__(self):
         return self.id
