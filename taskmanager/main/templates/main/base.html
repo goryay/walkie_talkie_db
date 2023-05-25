@@ -36,6 +36,8 @@
             #}-->
             <li class="nav-item px-1"><a class="btn btn-primary active" href="{% url 'accounting_list' %}" role="button"
                                          aria-pressed="true">Учёт</a></li>
+            <li class="nav-item px-1"><a class="btn btn-primary active" href="{% url 'walkie_talkie_list' %}"
+                                         role="button" aria-pressed="true">Рации</a></li>
             <li class="nav-item px-1"><a class="btn btn-primary active" href="{% url 'state_list' %}" role="button"
                                          aria-pressed="true">Состояние</a></li>
             <li class="nav-item px-1"><a class="btn btn-primary active" href="{% url 'organization_list' %}"
@@ -46,8 +48,7 @@
                                          aria-pressed="true">Пост</a></li>
             <li class="nav-item px-1"><a class="btn btn-primary active" href="{% url 'resposible_list' %}" role="button"
                                          aria-pressed="true">Арендодатель</a></li>
-            <li class="nav-item px-1"><a class="btn btn-primary active" href="{% url 'walkie_talkie_list' %}"
-                                         role="button" aria-pressed="true">Рации</a></li>
+
 
             {% if user.is_authenticated %}
             <a class="nav-item nav-link" href="{% url 'profile' %}">Профиль</a>
