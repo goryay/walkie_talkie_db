@@ -1,4 +1,15 @@
 * { margin: 0; padding: 0; }
+/*.navbar-nav {
+    color: #cbd5db;
+}
+
+.navbar-nav {
+  color: #ffffff;
+}
+
+.navbar-nav {
+  font-weight: 500;
+}*/
 
 .content-section {
   background: #ffffff;
@@ -10,11 +21,16 @@
 }
 
 main .card-body {
+    /*float: right;*/
     margin-top: 20px;
     text-align: center;
+    /*width: 90%;*/
 }
 
 form {
+/*    margin-left: 10%;
+    width: 500px;
+    margin-top: 10px;*/
     display: inline-block;
     vertical-align: middle;
 }
