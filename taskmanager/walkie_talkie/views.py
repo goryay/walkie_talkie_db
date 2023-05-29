@@ -11,8 +11,8 @@ def walkie_talkie_list(request):
 
     if search_query:
         walkie_talkies = WalkieTalkie.objects.filter(
-            Q(id__icontains=search_query) | Q(serial_number__icontains=search_query) | Q(
-                id_organization__name__icontains=search_query) | Q(wt_name__icontains=search_query))
+            Q(id__iregex=search_query) | Q(serial_number__iregex=search_query) | Q(
+                id_organization__name__iregex=search_query) | Q(wt_name__iregex=search_query))
     else:
         walkie_talkies = WalkieTalkie.objects.all()
     return render(request, "walkie_talkie/list.html", {'walkie_talkies': walkie_talkies})
