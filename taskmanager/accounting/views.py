@@ -11,11 +11,11 @@ def accounting_list(request):
 
     if search_query:
         accounts = Accounting.objects.filter(
-            Q(id__icontains=search_query) | Q(
-                id_walkie_talkie__serial_number__icontains=search_query) | Q(
-                id_post__name__icontains=search_query) | Q(
-                id_organization__name__icontains=search_query) | Q(
-                id_resposible__resposible_fio__icontains=search_query))
+            Q(id__iregex=search_query) | Q(
+                id_walkie_talkie__serial_number__iregex=search_query) | Q(
+                id_post__name__iregex=search_query) | Q(
+                id_organization__name__iregex=search_query) | Q(
+                id_resposible__resposible_fio__iregex=search_query))
     else:
         accounts = Accounting.objects.all()
     return render(request, "accounting/list.html", {'accounts': accounts})
