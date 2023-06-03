@@ -3,8 +3,19 @@ from django.shortcuts import render, redirect
 from .models import Accounting
 from .forms import AccountingForm
 from django.db.models import Q
+#from django.core.management.base import BaseCommand
 
-
+# class Command(BaseCommand):
+#     help = 'Count the number of records matching a search query'
+#
+# def add_arguments(self, parser):
+#         parser.add_argument('search_query', type=str, help='Search query')
+#
+# def handle(self, *args, **options):
+#         search_query = options['search_query']
+#         filtered_records = Accounting.objects.filter(your_field__icontains=search_query)
+#         record_count = filtered_records.count()
+#         self.stdout.write(f"The search query '{search_query}' matched {record_count} records.")
 @login_required
 def accounting_list(request):
     search_query = request.GET.get('search', '')

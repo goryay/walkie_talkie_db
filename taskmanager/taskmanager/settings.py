@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     # 'rest_framework.authtoken',
     # 'djoser',
     'crispy_forms',
+    'crispy_bootstrap4',
 ]
 
 MIDDLEWARE = [

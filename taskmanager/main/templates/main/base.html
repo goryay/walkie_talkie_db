@@ -27,6 +27,11 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+
+<div class="list">
+    <a href="#item1"></a>
+</div>
+
 <div class="container">
     <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
         <ul class="nav nav-pills">
@@ -72,12 +77,34 @@
 
     {% endblock %}
 </main>
+<script>
+    $(function() {
 
-<div class="container text-center">
+        $(window).on('scroll', function() {
+
+            if( $(window).scrollTop() >= 100) {
+
+                $('body').attr('id', 'gotop');
+                if( !$('.gototop').length ) {
+                    // Создаем ссылку, которая будет работать как кнопка возрата пользователя наверх сайта
+                    // Наверх можно поменять на кнопку или любое другое название
+                    // Так же вместо style="", можно привязаться все атрибуты стилей к классу .gototop
+                    $('body').append('<a href="#gotop" class="gototop" style="position: fixed; right: 10px; bottom: 10px; background-color: #fff; display: block; padding: 5px 10px;">&#11014;</a>');
+                    scrollToDiv(); // Вызываем функцию, которая делали между <head></head>
+                    }
+            } else {
+                // Убираем нашу ссылку и когда анимация заканчивается удалаем ее совсем
+                $('.gototop').fadeOut(600, function() { $(this).remove() });
+            }
+
+        });
+    });
+
+</script>
+<div id="item1" class="container text-center">
     <footer class="py-3 my-4 border-top">
         <p>© 2023 </p>
     </footer>
 </div>
-
 </body>
 </html>

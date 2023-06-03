@@ -2,43 +2,51 @@
 {% block content %}
 <div class="card-body">
     <h4>Список раций</h4>
-        <form class="form-inline my-2 my-lg-0" action="{% url 'walkie_talkie_list' %}">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <form class="form-inline my-2 my-lg-0" action="{% url 'walkie_talkie_list' %}">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+    <div class="count">
+        {% if walkie_talkies %}
+        <p style="display: block; position: absolute; top: 167px; right: 30px; height: 22px; width: 200px; background: orange; font-weight: bold;">
+            Количество записей: {{ walkie_talkies|length }}</p>
+        {% else %}
+        <p>Нет доступных записей.</p>
+        {% endif %}
+    </div>
     <table class="table">
         <thead>
-            <tr>
-                <th scope="col">Организация</th>
-                <th scope="col">Наименование</th>
-                <th scope="col">Серийный номер</th>
-                <th scope="col">Номинальнал частоты р/частоты (МГц)</th>
-                <th scope="col">Разрешение</th>
-                <th scope="col">Позывной</th>
-                <th scope="col">Номер свидетельства</th>
-                <th scope="col">Дата покупки</th>
-                <th scope="col">Дата выдачи (ввод в эксплуатацию)</th>
-                <th scope="col">Использование РЭС</th>
-            </tr>
+        <tr>
+            <th scope="col">Организация</th>
+            <th scope="col">Наименование</th>
+            <th scope="col">Серийный номер</th>
+            <th scope="col">Номинальнал частоты р/частоты (МГц)</th>
+            <th scope="col">Разрешение</th>
+            <th scope="col">Позывной</th>
+            <th scope="col">Номер свидетельства</th>
+            <th scope="col">Дата покупки</th>
+            <th scope="col">Дата выдачи (ввод в эксплуатацию)</th>
+            <th scope="col">Использование РЭС</th>
+        </tr>
         </thead>
         <tbody>
-            {% for walkie_talkie in walkie_talkies %}
-            <tr>
-                <td>{{ walkie_talkie.id_organization }}</td>
-                <td>{{ walkie_talkie.wt_name }}</td>
-                <td>{{ walkie_talkie.serial_number }}</td>
-                <td>{{ walkie_talkie.frequency }}</td>
-                <td>{{ walkie_talkie.permission }}</td>
-                <td>{{ walkie_talkie.callsing }}</td>
-                <td>{{ walkie_talkie.certificate_number }}</td>
-                <td>{{ walkie_talkie.date_of_purchase }}</td>
-                <td>{{ walkie_talkie.date_of_received }}</td>
-                <td>{{ walkie_talkie.use_of_RES }}</td>
-                <td><a type="button" class="btn btn-warning" href="update/{{ walkie_talkie.id }}">Обновить</a>
-                    <a type="button" class="btn btn-danger" href="delete/{{ walkie_talkie.id }}">Удалить</a>
-                </td>
-            </tr>
-            {% endfor %}
+        {% for walkie_talkie in walkie_talkies %}
+        <tr>
+            <td>{{ walkie_talkie.id_organization }}</td>
+            <td>{{ walkie_talkie.wt_name }}</td>
+            <td>{{ walkie_talkie.serial_number }}</td>
+            <td>{{ walkie_talkie.frequency }}</td>
+            <td>{{ walkie_talkie.permission }}</td>
+            <td>{{ walkie_talkie.callsing }}</td>
+            <td>{{ walkie_talkie.certificate_number }}</td>
+            <td>{{ walkie_talkie.date_of_purchase }}</td>
+            <td>{{ walkie_talkie.date_of_received }}</td>
+            <td>{{ walkie_talkie.use_of_RES }}</td>
+            <td><a type="button" class="btn btn-warning" href="update/{{ walkie_talkie.id }}">Обновить</a>
+                <a type="button" class="btn btn-danger" href="delete/{{ walkie_talkie.id }}">Удалить</a>
+            </td>
+        </tr>
+        {% endfor %}
         </tbody>
     </table>
     <a type="button" class="btn btn-success" href="create">Добавить</a>
